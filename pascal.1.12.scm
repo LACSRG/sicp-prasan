@@ -1,12 +1,13 @@
 ;; Exercise 1.12 from SICP
 
-(define (pascal r c)
+(define (pascal row col)
   (cond  
-   ((= r 0) 1)  
-   ((= c 0) 1)
-   ((= c r) 1)
+   ((= row 0) 1)  
+   ((= col 0) 1)
+   ((= col r) 1)
+   ((> col r) #f)
    (else (+ 
-	  (pascal (- r 1) c) 
-	  (pascal (- r 1) (- c 1))
+	  (pascal (- row 1) col) 
+	  (pascal (- row 1) (- col 1))
 	  ))
    ))
